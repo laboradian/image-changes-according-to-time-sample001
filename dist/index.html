@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"  >
+  <!--  Font Awesome の CDN  -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/default.min.css">
+  <link rel="stylesheet" href="css/main.css">
+  <title>時間とともに風景画像の色が変わっていくサンプル001</title>
+</head>
+<body>
+
+  <header>
+    <h1>時間とともに風景画像の色が変わっていくサンプル001</h1>
+  </header>
+
+  <div class="well">
+    <ul>
+      <li><code>header</code>タグの <code>background-image</code>属性で画像がセットされている。</li>
+      <li>この風景画像に対して、夕方や夜の効果を与えたい。</li>
+      <li>その際、画像の手前にある要素に影響を与えてはいけない。</li>
+    </ul>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">風景画像</div>
+    <div class="panel-body">
+      <div>
+        <header id="my-header">
+          <!-- 1階層挟む -->
+          <div id="middleLayer" class="middleBg">
+            <p>こんにちは！</p>
+          </div>
+        </header>
+        <!--<img src="img/nagoya-city-v2.1.jpg" id="city-image" />-->
+      </div>
+      <div class="btnArea">
+        <button type="button" class="btn btn-success" id="btnApplyClass1">クラス1</button>
+        <button type="button" class="btn btn-success" id="btnApplyEvening">夕方</button>
+        <button type="button" class="btn btn-success" id="btnApplyNight">夜</button>
+        <button type="button" class="btn btn-warning" id="btnClearClass">クリア</button>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="well">
+    <h4>色の効果について</h4>
+    <ul>
+      <li>要素の背景画像に対して半透明な色を重ねている。</li>
+      <li>そのため、その要素と子要素との間に1階層挟む込んで、そこに <code>background: rgba()</code> で半透明な色を重ねる。</li>
+      <li>しかし、これだと既存のウェブページに追加すると困る場合が多そうなので、他の方法を探っていきたい。</li>
+    </ul>
+
+    <h4>時間の判定について</h4>
+    <ul>
+      <li><a href="https://momentjs.com/">Moment.js</a> を使っている。</li>
+      <li>夕方が始まる時間、夜が始まる時間、夜が終わる時間を季節によって少し調節し、あとは現在時刻によって、CSSクラスを適用するか判断している。</li>
+    </ul>
+  </div>
+
+  <div class="well">
+    <p>ソースコードはこちら</p>
+    <ul>
+      <li><a href="https://github.com/laboradian/image-changes-according-to-time-sample001">laboradian/image-changes-according-to-time-sample001</a></li>
+    </ul>
+  </div>
+
+  <hr>
+  <footer>© 2017 <a href="http://laboradian.com/">Laboradian</a></footer>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="js/main.js" charset="utf-8"></script>
+</body>
+</html>
