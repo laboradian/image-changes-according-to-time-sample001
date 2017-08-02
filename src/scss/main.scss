@@ -17,7 +17,7 @@ body {
 }
 
 header {
-  &#my-header {
+  &.myHeaderClass {
     background-image: url('../img/nagoya-city-v2.1.jpg');
     background-repeat: no-repeat;
     width: 900px;
@@ -30,7 +30,6 @@ header {
       p {
         text-align: center;
         font-size: 2em;
-        //background-color: rgba(255, 255, 255, 0.5);
       }
     }
     .middleBgDaytime {
@@ -54,4 +53,10 @@ header {
 
 footer {
   text-align: right;
+}
+
+@keyframes shake1 {
+  0%   { transform: translate(2px,  0px) rotate(0deg); }
+  50%  { transform: translate(-4px, 0px) rotate(5deg); }
+  100% { transform: translate(2px,  0px) rotate(0deg); }
 }

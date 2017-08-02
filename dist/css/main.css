@@ -5823,22 +5823,22 @@ body {
   body img.class1 {
     opacity: 0.5; }
 
-header#my-header {
+header.myHeaderClass {
   background-image: url("../img/nagoya-city-v2.1.jpg");
   background-repeat: no-repeat;
   width: 900px;
   height: 500px; }
-  header#my-header .middleBg {
+  header.myHeaderClass .middleBg {
     display: table-cell;
     vertical-align: middle; }
-    header#my-header .middleBg p {
+    header.myHeaderClass .middleBg p {
       text-align: center;
       font-size: 2em; }
-  header#my-header .middleBgDaytime {
+  header.myHeaderClass .middleBgDaytime {
     background: rgba(255, 255, 255, 0.5); }
-  header#my-header .middleBgNight {
+  header.myHeaderClass .middleBgNight {
     background: rgba(0, 0, 0, 0.4); }
-  header#my-header .middleBgEvening {
+  header.myHeaderClass .middleBgEvening {
     background: rgba(157, 114, 21, 0.2); }
 
 .well h4 {
@@ -5847,3 +5847,11 @@ header#my-header {
 
 footer {
   text-align: right; }
+
+@keyframes shake1 {
+  0% {
+    transform: translate(2px, 0px) rotate(0deg); }
+  50% {
+    transform: translate(-4px, 0px) rotate(5deg); }
+  100% {
+    transform: translate(2px, 0px) rotate(0deg); } }

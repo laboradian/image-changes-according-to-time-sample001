@@ -28,7 +28,7 @@
     <div class="panel-heading">風景画像</div>
     <div class="panel-body">
       <div>
-        <header id="my-header">
+        <header id="myHeader" class="myHeaderClass">
           <!-- 1階層挟む -->
           <div id="middleLayer" class="middleBg">
             <p>こんにちは！</p>
@@ -42,7 +42,23 @@
         <button type="button" class="btn btn-success" id="btnApplyNight">夜</button>
         <button type="button" class="btn btn-warning" id="btnClearClass">クリア</button>
       </div>
+      <div class="btnArea">
+        <button type="button" class="btn btn-success" id="btnSimulate1">シミュレーション1</button>
+        <output id="outputSimulate1" style="display:inline-block;margin-right:10px;"></output>
+      </div>
 
+    </div>
+  </div>
+
+  <div class="panel panel-success">
+    <div class="panel-heading">風景画像オリジナル（比較用）</div>
+    <div class="panel-body">
+      <header class="myHeaderClass">
+        <!-- 1階層挟む -->
+        <div id="middleLayer" class="middleBg">
+          <p>こんにちは！</p>
+        </div>
+      </header>
     </div>
   </div>
 
@@ -59,6 +75,12 @@
       <li><a href="https://momentjs.com/">Moment.js</a> を使っている。</li>
       <li>夕方が始まる時間、夜が始まる時間、夜が終わる時間を季節によって少し調節し、あとは現在時刻によって、CSSクラスを適用するか判断している。</li>
     </ul>
+
+    <h4>メモ</h4>
+    <ul>
+      <li>JavaScriptで時間を判定し、動的に半透明な色を重ねる場合、window.onload で実行するため、一旦昼間用の画像が表示されて、一瞬待ってから色が変わる。このままだと、この手法は現実的ではない。</li>
+    </ul>
+
   </div>
 
   <div class="well">
