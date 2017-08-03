@@ -8,6 +8,10 @@ body {
   }
   .btnArea {
     margin-top: 10px;
+    button {
+      margin-bottom: 10px;
+      margin-right: 10px;
+    }
   }
   img {
     &.class1 {
@@ -23,8 +27,8 @@ header {
     width: 900px;
     height: 500px;
     .middleBg {
-      //width: 900px;
-      //height: 500px;
+      width: 900px;
+      height: 500px;
       display: table-cell;
       vertical-align: middle;
       p {
@@ -55,8 +59,17 @@ footer {
   text-align: right;
 }
 
+.imageAppear {
+  animation: imageAppear 2.0s ease-in-out;
+}
+
 @keyframes shake1 {
   0%   { transform: translate(2px,  0px) rotate(0deg); }
   50%  { transform: translate(-4px, 0px) rotate(5deg); }
   100% { transform: translate(2px,  0px) rotate(0deg); }
+}
+
+@keyframes imageAppear {
+  0%   { background: rgba(0, 0, 0, 1); }
+  100% { background: none; }
 }

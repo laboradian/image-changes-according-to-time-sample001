@@ -17,11 +17,37 @@
   </header>
 
   <div class="well">
+    <h4>状況</h4>
     <ul>
-      <li><code>header</code>タグの <code>background-image</code>属性で画像がセットされている。</li>
+      <li><code>header</code>タグの <code>background-image</code>属性で風景画像がセットされている。</li>
+    </ul>
+
+    <h4>目的</h4>
+    <ul>
       <li>この風景画像に対して、夕方や夜の効果を与えたい。</li>
       <li>その際、画像の手前にある要素に影響を与えてはいけない。</li>
     </ul>
+
+    <h4>手法：色の効果</h4>
+    <ul>
+      <li>要素の背景画像に対して半透明な色を重ねる。</li>
+      <li>そのため、その要素と子要素との間に1階層挟む込み、そこに <code>background: rgba()</code> で半透明な色を重ねる。</li>
+      <li>ページアクセス時にrgbaを計算させて適用させると、最初から表示されている昼間用画像が急に色味が変わって不自然な印象を与える。これを防ぐため、もう1階層挟み、その階層(div)では画面表示時に黒色をつけて段々その黒色を薄くするCSSアニメーションを付ける。これにより、風景画像の色味がどんな色になる場合であっても不自然な印象を与えない。</li>
+      <li><code>background</code> を直接変更するのでもよいし、CSSのクラスにしておいて、そのクラスを動的に適用してもよい。</li>
+    </ul>
+
+    <h4>手法：時間の判定</h4>
+    <ul>
+      <li><a href="https://momentjs.com/">Moment.js</a> を使っている。</li>
+      <li>朝（昼間）が始まる時間、夕方が始まる時間、夜が始まる時間を季節によって調節し、あとは現在時刻と比較する。</li>
+      <li>リアルタイムで色を変えていく場合は、<code>window.requestAnimationFrame</code> を使用する。</li>
+    </ul>
+
+    <h4>メモ</h4>
+    <ul>
+      <li>もう少しシンプルな方法を知りたい。</li>
+    </ul>
+
   </div>
 
   <div class="panel panel-success">
@@ -29,9 +55,11 @@
     <div class="panel-body">
       <div>
         <header id="myHeader" class="myHeaderClass">
-          <!-- 1階層挟む -->
+          <!-- 2階層挟む -->
           <div id="middleLayer" class="middleBg">
-            <p>こんにちは！</p>
+            <div id="initLayer" class="middleBg imageAppear">
+              <p>こんにちは！</p>
+            </div>
           </div>
         </header>
         <!--<img src="img/nagoya-city-v2.1.jpg" id="city-image" />-->
@@ -43,10 +71,24 @@
         <button type="button" class="btn btn-warning" id="btnClearClass">クリア</button>
       </div>
       <div class="btnArea">
-        <button type="button" class="btn btn-success" id="btnSimulate1">シミュレーション1</button>
+        <button type="button" class="btn btn-success" id="btnSimulate1">シミュレーション(17時から2.1時間)</button>
         <output id="outputSimulate1" style="display:inline-block;margin-right:10px;"></output>
+        <br>
+        <button type="button" class="btn btn-success" id="btnSimulate2">シミュレーション(18時から1.1時間)</button>
+        <output id="outputSimulate2" style="display:inline-block;margin-right:10px;"></output>
+        <br>
+        <button type="button" class="btn btn-success" id="btnSimulate3">シミュレーション(8月1日5時から1.1時間)</button>
+        <output id="outputSimulate3" style="display:inline-block;margin-right:10px;"></output>
       </div>
 
+      <h4>時間帯の設定について</h4>
+      <ul>
+        <li>7時から朝（昼間）となる。（但し、7月から9月は6時とする）</li>
+        <li>17時から夕方となる。</li>
+        <li>18時から夜となる。</li>
+        <li>夜から朝（昼間）になる時、昼間から夕方になる時は、1時間掛けて色を変化させる。</li>
+        <li>夕方から夜になる時は、夕方として設定した時刻から、夜として設定した時刻までの時間を掛けて色を変化させる。</li>
+      </ul>
     </div>
   </div>
 
@@ -60,27 +102,6 @@
         </div>
       </header>
     </div>
-  </div>
-
-  <div class="well">
-    <h4>色の効果について</h4>
-    <ul>
-      <li>要素の背景画像に対して半透明な色を重ねている。</li>
-      <li>そのため、その要素と子要素との間に1階層挟む込んで、そこに <code>background: rgba()</code> で半透明な色を重ねる。</li>
-      <li>しかし、これだと既存のウェブページに追加すると困る場合が多そうなので、他の方法を探っていきたい。</li>
-    </ul>
-
-    <h4>時間の判定について</h4>
-    <ul>
-      <li><a href="https://momentjs.com/">Moment.js</a> を使っている。</li>
-      <li>夕方が始まる時間、夜が始まる時間、夜が終わる時間を季節によって少し調節し、あとは現在時刻によって、CSSクラスを適用するか判断している。</li>
-    </ul>
-
-    <h4>メモ</h4>
-    <ul>
-      <li>JavaScriptで時間を判定し、動的に半透明な色を重ねる場合、window.onload で実行するため、一旦昼間用の画像が表示されて、一瞬待ってから色が変わる。このままだと、この手法は現実的ではない。</li>
-    </ul>
-
   </div>
 
   <div class="well">

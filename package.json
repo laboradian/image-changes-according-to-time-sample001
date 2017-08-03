@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/main.js",
   "scripts": {
-    "test": "mocha --colors --require babel-register test/main.js",
+    "test": "mocha --require babel-register test/main.js || exit 0",
     "watch": "webpack -d --colors --watch",
     "server": "browser-sync start --server dist --serverStatic dist --files dist/*",
     "build": "NODE_ENV=production webpack -p --progress --colors"
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/laboradian/image-changes-according-to-time-sample001#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-plugin-espower": "^2.3.2",

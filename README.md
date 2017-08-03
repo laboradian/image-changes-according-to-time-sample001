@@ -9,6 +9,13 @@ $ npm install
 $ npm run
 ```
 
+dist/js/main_for_laboradian.js
+------------
+
+- laboradian.com で使用するファイル（実際に使うかどうかは分からない）
+
+
+
 風景画像に対して夕方や夜の効果を与える
 -------
 

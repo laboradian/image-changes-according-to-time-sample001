@@ -51,6 +51,51 @@ module.exports = [
 },
 {
   /* ----------------
+     JS用モジュール for laboradian.com
+    ----------------- */
+  entry: {
+    main: "./src/js/main_for_laboradian.js"
+  },
+  output: {
+    path: path.resolve(__dirname, "dist/js"),
+    publicPath: '/js/',
+    filename: "main_for_laboradian.js"
+  },
+  module: {
+    rules: [
+      {
+        enforce: "pre",
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: "eslint-loader",
+        options: {}
+      },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {}
+        }
+      }
+    ]
+  },
+  plugins: [
+    /* use jQuery as Global */
+    new webpack.ProvidePlugin({
+        jQuery: "jquery",
+        $: "jquery"
+    }),
+    new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development')
+    })
+  ],
+  resolve: {
+    extensions: ['.js']
+  }
+},
+{
+  /* ----------------
      CSS用モジュール
     ----------------- */
   entry: {
