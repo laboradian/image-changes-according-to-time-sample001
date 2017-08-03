@@ -25,11 +25,11 @@ window.addEventListener('load', () => {
   //setSize(initLayer);
 
   const bgCreator = new BackgroundCreator();
-  const dt = moment();
-  dt.utcOffset('+0900');
-  dt.year(2017).month(7).date(1).hour(1).minute(30).seconds(0);
-  bgCreator.update(dt);
-  //bgCreator.update();
+  //const dt = moment();
+  //dt.utcOffset('+0900');
+  //dt.year(2017).month(7).date(1).hour(1).minute(30).seconds(0);
+  //bgCreator.update(dt);
+  bgCreator.update();
   middleLayer.style.backgroundColor = bgCreator.getBackgroundColorString();
 });
 
