@@ -244,6 +244,41 @@ class BackgroundCreator {
       A: calcCurrentValue(startColorObj.A, endColorObj.A, rate)
     };
   }
+
+  /**
+   * DOM要素を現在の色へ徐々に変化させる
+   *
+   * @param {object} ターゲットとなるDOMオブジェクト
+   * @param {number} 変化に掛ける秒数
+   */
+  translateToCurrentBackground(elm, sec) {
+    const startColorObj = {
+      R: 0,
+      G: 0,
+      B: 0,
+      A: 0
+    };
+
+    let myReq;
+    const startTime = moment().valueOf(); // [ms]
+    let rate;
+    let currColor;
+
+    const loop = () => {
+      rate = (moment().valueOf() - startTime) / (1000*sec);
+
+      if (rate >=1) {
+        window.cancelAnimationFrame(myReq);
+        return;
+      }
+
+      currColor = BackgroundCreator.calcCurrentValueOfColor(startColorObj, this.currentColor, rate)
+      elm.style.backgroundColor = `rgba(${parseInt(currColor.R)}, ${parseInt(currColor.G)}, ${parseInt(currColor.B)}, ${currColor.A})`;
+
+      myReq = window.requestAnimationFrame(loop);
+    };
+    myReq = window.requestAnimationFrame(loop);
+  }
 }
 
 export default BackgroundCreator;

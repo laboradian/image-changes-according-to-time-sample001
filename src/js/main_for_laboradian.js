@@ -7,11 +7,5 @@ window.addEventListener('load', () => {
   const headerImageBk = document.querySelector(`#${headerImageBkId}`);
   const bgCreator = new BackgroundCreator();
   bgCreator.update();
-  headerImageBk.style.backgroundColor = bgCreator.getBackgroundColorString();
-
-  const loop = () => {
-    bgCreator.update();
-    window.requestAnimationFrame(loop);
-  };
-  window.requestAnimationFrame(loop);
+  bgCreator.translateToCurrentBackground(headerImageBk, 3);
 });

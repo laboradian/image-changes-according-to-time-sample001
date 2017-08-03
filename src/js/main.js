@@ -30,7 +30,7 @@ window.addEventListener('load', () => {
   //dt.year(2017).month(7).date(1).hour(1).minute(30).seconds(0);
   //bgCreator.update(dt);
   bgCreator.update();
-  middleLayer.style.backgroundColor = bgCreator.getBackgroundColorString();
+  bgCreator.translateToCurrentBackground(middleLayer, 3);
 });
 
 //const setSize = (elm) => {
