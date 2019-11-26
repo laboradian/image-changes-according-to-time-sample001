@@ -1,5 +1,5 @@
-@import './bootstrap-variables';
-@import './bootstrap-custom';
+//@import './bootstrap-variables';
+//@import './bootstrap-custom';
 
 body {
   padding: 20px;
@@ -24,7 +24,8 @@ header {
   &.myHeaderClass {
     background-image: url('../img/nagoya-city-v2.1.jpg');
     background-repeat: no-repeat;
-    width: 900px;
+    /*width: 900px;*/
+    width: 100%;
     height: 500px;
     .middleBg {
       width: 900px;

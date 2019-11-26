@@ -1,15 +1,15 @@
 /* global */
-import '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js';
-import 'babel-polyfill'
-import moment from 'moment';
-import BackgroundCreator from './BackgroundCreator';
+//import '../../node_modules/bootstrap-sass/assets/javascripts/bootstrap.js';
+//import 'babel-polyfill'
+//import moment from 'moment';
+import BackgroundCreator from './BackgroundCreator.js';
 
 //import _ from 'lodash'
 
 // index.html ファイルをコピーする
-require('file-loader?name=../../dist/[name].[ext]!../index.html');
+//require('file-loader?name=../../dist/[name].[ext]!../index.html');
 
-require('file-loader?name=../../dist/img/[name].[ext]!../img/nagoya-city-v2.1.jpg');
+//require('file-loader?name=../../dist/img/[name].[ext]!../img/nagoya-city-v2.1.jpg');
 
 console.log('%c 🌈 Laboradian.com 🌈 %c http://laboradian.com ',
   'background: #2383BF; color: #fff; font-size: 1.4em;',
