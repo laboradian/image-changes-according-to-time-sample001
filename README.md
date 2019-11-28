@@ -9,6 +9,22 @@ $ npm install
 $ npm run
 ```
 
+Build
+-------
+
+### 開発用のビルドコマンド
+
+```
+$ npm run build
+```
+
+### 本番用のビルドコマンド
+
+```
+$ npm run build-p
+```
+
+
 dist/js/main_for_laboradian.js
 ------------
 

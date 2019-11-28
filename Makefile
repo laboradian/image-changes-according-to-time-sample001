@@ -1,7 +1,7 @@
 
 ENV := development
 
-all: clean html js css img
+all: html js css img
 
 html: index.html
 js: main.js

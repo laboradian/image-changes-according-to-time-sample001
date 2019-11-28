@@ -6,7 +6,7 @@
   "scripts": {
     "test": "",
     "build": "make",
-    "build-p": "make ENV=production"
+    "build-p": "make ENV=production clean all"
   },
   "repository": {
     "type": "git",
